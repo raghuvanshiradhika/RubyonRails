@@ -1,0 +1,19 @@
+<h1>Create new category</h1>
+<%= form_with scope: :category, url:categories_path,local: true do |f| %>
+<p>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+</p>
+<p>
+  <%= f.label :description %>:
+  <%= f.text_area :description %><br />
+</p>
+<p>
+  <%= f.label :status %>:
+  <%= f.check_box :active %><br />
+</p>
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>

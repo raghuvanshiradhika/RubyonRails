@@ -1,0 +1,29 @@
+<h1>This is categories index page</h1>
+
+<%= pagy_nav(@pagy).html_safe %>
+
+<label>Showing <%=@pagy.from %> to <%=@pagy.to %> from <%= @pagy.count %></label>
+<label>Show</label>
+<table>
+<thead>
+<tr>
+<td>Name</td>
+<td>Description</td>
+<td>Status</td>
+<td>Actions</td>
+</tr>
+</thead>
+<tbody>
+<% @categories.each do |category| %>
+<tr>
+    <td><%= category.name %></td>
+    <td><%= category.description %></td>
+    <td><%= category.active %></td>
+    <td><%= link_to "Inactivate", category_path(category), method: :delete %> </td>
+    <td><%= link_to "Show", category_path(category)%> </td>
+    <td><%= link_to "Edit", edit_category_path(category)%> </td>
+    </tr>
+    <% end %>
+</tbody>
+<table>
+<p><%= link_to "Create new category", new_category_path %></p>
