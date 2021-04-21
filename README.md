@@ -1,5 +1,7 @@
 # README
 
+Switching to devlopment branch
+
 Ruby on Rails by Radhika Raghuvanshi
 
 This README would normally document whatever steps are necessary to get the
