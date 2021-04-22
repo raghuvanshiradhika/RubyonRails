@@ -2,7 +2,12 @@ class CategoriesController < ApplicationController
     include Pagy::Backend
 
     def index
-        @pagy, @categories = pagy(Category.all,items: 3)
+        
+        if !params[:per_page].present?
+            params[:per_page] = 2 #default
+        end
+        
+        @pagy, @categories = pagy(Category, items: params[:per_page])   
     end
 
     def show

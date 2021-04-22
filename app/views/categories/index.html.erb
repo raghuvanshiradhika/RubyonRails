@@ -1,9 +1,16 @@
 <h1>This is categories index page</h1>
 
 <%= pagy_nav(@pagy).html_safe %>
+<%= pagy_items_selector_js(@pagy,1) %>
 
-<label>Showing <%=@pagy.from %> to <%=@pagy.to %> from <%= @pagy.count %></label>
-<label>Show</label>
+<label>Showing <%=@pagy.from %> to <%=@pagy.to %> from <%= @pagy.count %></label> <br/>
+
+<%= form_tag categories_path, method: :get do %>
+  <label>Show</label>
+  <%= select_tag :per_page, options_for_select([2, 3, 4, 5], params[:per_page]),
+   onchange: "this.form.submit();" %>
+  
+<% end %>
 <table>
 <thead>
 <tr>
